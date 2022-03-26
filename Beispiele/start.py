@@ -24,7 +24,23 @@ class name(commands.Cog):
         await member.ban(reason=reason)
         await ctx.send("Member banned")
 
-    #
+    #Add Reaction
+    @commands.command()
+    async def reaction(self, ctx):
+        await ctx.add_reaction("✅")
+
+    #Remove Reaction
+    @commands.command()
+    async def reaction(self, ctx):
+        await ctx.add_reaction("✅")
+        await ctx.add_reaction("❌")
+        await ctx.remove_reaction("✅")
+    
+    #Cooldown
+    @commands.command()
+    @commands.cooldown(1, 5, commands.BucketType.user)
+    async def reaction(self, ctx):
+        await ctx.send("Cooldown")
 
 def setup(bot): #Hier machen wir das Setup für die Datei
   bot.add_cog(name(bot))    #Hier benötigen wir den gleichen Name wir oben in der Class
